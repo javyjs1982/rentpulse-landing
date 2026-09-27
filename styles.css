@@ -1,0 +1,108 @@
+/* RentPulse landing — one stylesheet for every page. No fonts, frameworks or scripts. */
+
+:root {
+  --accent: #009569;          /* BrandPrimary. Fills behind large bold text only (3.8:1 with white). */
+  --accent-ink: #00704f;      /* Links and small accent text (5.4:1 on the page background). */
+  --accent-soft: #e3f4ee;
+  --ink: #16282b;
+  --ink-muted: #51625f;
+  --line: #d7e1de;
+  --page: #f6f8f7;
+  --card: #ffffff;
+  --radius: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent-ink: #5fd3a6;
+    --accent-soft: #15332b;
+    --ink: #e4edeb;
+    --ink-muted: #9fb2ae;
+    --line: #2a3b3e;
+    --page: #0f1a1c;
+    --card: #17282b;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--page);
+}
+
+a { color: var(--accent-ink); }
+
+img { max-width: 100%; height: auto; }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+/* Header */
+.site-header { padding: 20px 0; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.1rem; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+.back { font-size: 0.95rem; text-decoration: none; }
+
+/* Hero */
+.hero { text-align: center; padding: 32px 0 16px; }
+.hero .icon { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 3rem); line-height: 1.1; margin: 20px 0 8px; letter-spacing: -0.02em; }
+.hero .tagline { font-size: clamp(1.1rem, 3.6vw, 1.3rem); color: var(--ink-muted); margin: 0 auto 28px; max-width: 30ch; }
+
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;          /* large bold: 3.8:1 meets WCAG's large-text threshold */
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+}
+.cta:hover, .cta:focus-visible { filter: brightness(0.92); }
+.cta-note { display: block; margin-top: 10px; font-size: 0.9rem; color: var(--ink-muted); }
+
+.shots { display: flex; gap: 14px; justify-content: center; margin: 40px 0 8px; }
+.shots img {
+  width: calc((100% - 28px) / 3);
+  max-width: 210px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
+  background: var(--card);
+}
+
+/* Sections */
+section { padding: 40px 0; }
+section h2 { font-size: 1.5rem; margin: 0 0 20px; letter-spacing: -0.01em; }
+
+.features { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 600px) { .features { grid-template-columns: 1fr 1fr; } }
+.feature { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.feature h3 { margin: 0 0 6px; font-size: 1.08rem; }
+.feature p { margin: 0; color: var(--ink-muted); }
+.feature .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: middle; }
+
+.contact { text-align: center; }
+.contact p { color: var(--ink-muted); margin: 0 0 12px; }
+.contact .email { font-size: 1.15rem; font-weight: 600; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding: 24px 0 40px; margin-top: 24px; font-size: 0.92rem; color: var(--ink-muted); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+.site-footer nav a { margin-right: 16px; }
+
+/* Legal pages */
+.legal { padding: 8px 0 24px; }
+.legal h1 { font-size: clamp(1.7rem, 5vw, 2.2rem); line-height: 1.2; letter-spacing: -0.01em; }
+.legal h2 { margin-top: 2em; font-size: 1.25rem; }
+.legal table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+.legal th, .legal td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+.legal th { background: var(--accent-soft); }
+.legal a { word-break: break-word; }
