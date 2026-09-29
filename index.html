@@ -29,6 +29,16 @@
   </div>
 </section>
 
+<section class="video" aria-labelledby="video-title">
+  <h2 id="video-title">See it in action</h2>
+  <!-- A local poster until clicked, so the page loads nothing from YouTube unless the visitor asks. -->
+  <a class="video-frame" href="https://www.youtube.com/watch?v=L1wYEZfRYd0" data-youtube="L1wYEZfRYd0">
+    <img src="assets/video-poster.jpg" alt="Play the RentPulse video: Still chasing rent in notebooks and WhatsApp?" width="1280" height="720" loading="lazy">
+    <span class="play" aria-hidden="true"></span>
+  </a>
+  <p class="video-note">A short tour of the app. Plays from YouTube.</p>
+</section>
+
 <section aria-labelledby="features-title">
   <h2 id="features-title">Built for small landlords</h2>
   <div class="features">
@@ -51,5 +61,18 @@
     <span>&copy; 2026 Muhammad Jawwad</span>
   </div>
 </footer>
+<script>
+document.querySelectorAll('[data-youtube]').forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + link.dataset.youtube + '?autoplay=1&rel=0';
+    frame.title = 'RentPulse video';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    link.replaceWith(frame);
+  });
+});
+</script>
 </body>
 </html>
